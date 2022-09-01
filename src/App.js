@@ -1,42 +1,68 @@
-import React,{ useState } from 'react';
+/* eslint-disable */
+import React, { useState } from 'react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ReactHtmlParser from 'html-react-parser';
 import './App.css';
 
 function App() {
 
-  //destructuring 문법 
+  const [Content, setConent] = useState({
+    title: '',
+    content: ''
+  })
 
-  //데이터,데이터 변경함수  
-  let [title,titlechange] = useState(['TypeScript에 대해서 알아보자','Spring Framwork란?']);
-  let [content,contentchange] = useState(['타입스크립트는 JavaScript에서 발전한 문법 입니다 ',"스프링은 Java의 백엔드 프레임워크입니다 "])
+  const [viewContent, setViewContent] = useState([])
+
+  const getValue = e => {
+    const { name, value } = e.target;
+    setConent({
+      ...Content,
+      [name]: value
+    })
+    console.log(Content)
+  };
+
   return (
     <div className="App">
-      <div className="black-nav">
-        <div>기술 Blog</div>
+      <h1>Blog</h1>
+      <div className='blog-container'>
+        {viewContent.map(element =>
+          <div>
+            <h2>{element.title}</h2>
+            <div>
+              {ReactHtmlParser(element.content)}
+            </div>
+          </div>
+        )}
       </div>
-      <div className='list'>
-        <h3> { title[0] }</h3>
-        <a style={ {fontSize : '12px'}}>{content[0]}</a>
-        <p>2022-08-17</p>
-        <hr/>
+      <div className='form-wrapper'>
+        <input className='title-input' type='text' placeholder='제목' onChange={getValue}
+          name='title' />
+        <CKEditor
+          editor={ClassicEditor}
+          data=""
+          onReady={editor => {
+          }}
+          onChange={(event, editor) => {
+            const data = editor.getData();
+            console.log({ event, editor, data });
+            setConent({
+              ...Content,
+              content: data
+            })
+            console.log(Content);
+          }}
+          onBlur={(event, editor) => {
+          }}
+          onFocus={(event, editor) => {
+          }}
+        />
       </div>
-      <div className='list'>
-        <h3> { title[1] }</h3>
-        <a style={ {fontSize : '12px'}}>{content[1]}</a>
-        <p>2022-08-17</p>
-        <hr/>
-      </div>
-      <div className='list'>
-        <h3> { title[0] }</h3>
-        <a style={ {fontSize : '12px'}}>{content[0]}</a>
-        <p>2022-08-17</p>
-        <hr/>
-      </div>
-      <div className='list'>
-        <h3> { title[1] }</h3>
-        <a style={ {fontSize : '12px'}}>{content[1]}</a>
-        <p>2022-08-17</p>
-        <hr/>
-      </div>
+      <button className='submit-btn'
+        onClick={() => {
+          setViewContent(viewContent.concat({ ...Content }));
+        }}>글쓰기</button>
     </div>
   );
 }
