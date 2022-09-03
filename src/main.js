@@ -6,18 +6,11 @@ import Axios from 'axios';
 
 const Main = () => {
 
-    const [boardContent, setBoardContent] = useState({
-        title: '',
-        content: '',
-        nickname: '',
-        date: ''
-    })
-
     const [viewContent, setViewContent] = useState([]);
 
     Axios.get('http://localhost:8080/boards').then((response) => {
         setViewContent(response.data);
-    }, [boardContent])
+    })
 
     return (
         <div className='blog-main'>
@@ -25,8 +18,8 @@ const Main = () => {
             <div className='blog-container'>
                 {viewContent.map(element =>
                     <div>
-                        <a href=''>{element.title}</a>
-                        <div>{element.content}</div>
+                        <a href='/write'>{element.title}</a>
+                        <div>{ReactHtmlParser(element.content)}</div>
                         <div>{element.nickname}</div>
                         <div>{element.date}</div>
                         <br></br>
