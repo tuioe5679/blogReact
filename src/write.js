@@ -10,6 +10,11 @@ import './write.css';
 function Write() {
     const navigate = useNavigate();
 
+    const [Content, setConent] = useState({
+        title: '',
+        content: '',
+    })
+
     const [viewContent, setViewContent] = useState([])
 
     const getValue = e => {
