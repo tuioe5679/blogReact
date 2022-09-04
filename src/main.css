@@ -1,3 +1,53 @@
-.blog-main{
-    text-align: center;
+body{
+    font-family: 'nanumsquare';
+    margin: 0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style-type: none;
+}
+
+li a{
+    color: white;
+    padding-left: 20px;
+    margin: 10px auto;
+}
+
+.blog-nav{
+    background-color: rgb(51, 51, 51);
+    display: flex;
+    color: white;
+    padding: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+    font-size: 15px;
+    padding: 20px 50px;
+}
+
+.menu{
+    display: flex;
+    padding-left: 1500px;
+}
+.title{
+    font-size: 25px;
+}
+  
+.title > a{
+    color: white;
+}
+
+.borad{
+    width: 800px;
+    text-align: left;
+    margin: auto
+}
+
+.borad a{
+    color: black;
+    font-size: 20px;
+    font-weight: bold
 }

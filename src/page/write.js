@@ -4,7 +4,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useNavigate } from 'react-router';
 import Axios from 'axios';
-import './write.css';
+import '../write.css';
 
 
 function Write() {
