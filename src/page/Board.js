@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./component/Header";
+import "../css/board.css"
 
 function Board(boardId) {
     const [boardItem, setBoardItem] = useState([]);

@@ -1,0 +1,9 @@
+body{
+    font-family: 'nanumsquare';
+    margin: 0px;
+}
+
+.board-item{
+    padding-top: 100px;
+    align-items: center;
+}
