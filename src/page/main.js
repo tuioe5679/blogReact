@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import '../main.css'
 import ReactHtmlParser from 'html-react-parser';
 import Axios from 'axios';
-import Header from '../component/Header';
+import Header from './component/Header';
 
 
 const Main = () => {
