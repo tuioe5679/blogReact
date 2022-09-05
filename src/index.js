@@ -1,6 +1,5 @@
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
-import App from './page/App';
 import Main from './page/main';
 import Write from './page/write';
 

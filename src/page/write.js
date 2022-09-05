@@ -15,8 +15,6 @@ function Write() {
         content: '',
     })
 
-    const [viewContent, setViewContent] = useState([])
-
     const getValue = e => {
         const { name, value } = e.target;
         setConent({

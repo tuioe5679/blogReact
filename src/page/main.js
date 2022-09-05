@@ -16,6 +16,16 @@ const Main = () => {
     return (
         <div className='blog-main'>
             <Header></Header>
+            <div className='blog-profile'>
+                <img src='https://avatars.githubusercontent.com/u/70015636?s=400&u=0dfe91cbb797e3a9028c41910be154eb46447314&v=4' alt='이미지'></img>
+                <div className='nickname'>
+                    코타
+                </div>
+                <div className='username'>
+                    배이한
+                </div>
+                <hr></hr>
+            </div>
             <div className='borad'>
                 {viewContent.map(element =>
                     <div>
@@ -25,10 +35,10 @@ const Main = () => {
                         <div>{element.date}</div>
                         <hr></hr>
                     </div>
-                )} 
+                )}
             </div>
-        </div> 
-    ) 
+        </div>
+    )
 }
 
 export default Main;
