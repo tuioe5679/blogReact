@@ -4,6 +4,7 @@ body{
 }
 
 .board-item{
-    padding-top: 100px;
-    align-items: center;
+    width: 50%;
+    padding: 150px 150px ;
+    
 }

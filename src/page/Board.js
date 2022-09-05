@@ -21,10 +21,11 @@ function Board(boardId) {
         <div>
             <Header></Header>
             <div className="board-item">
-                <div>{boardItem.title}</div>
-                <div dangerouslySetInnerHTML={createMarkup(element)} />
+                <h2>{boardItem.title}</h2>
                 <div>{boardItem.nickname}</div>
                 <div>{boardItem.date}</div>
+                <hr></hr>
+                <div dangerouslySetInnerHTML={createMarkup(element)} />
             </div>
         </div></>)
 
@@ -32,13 +33,13 @@ function Board(boardId) {
 }
 
 function createMarkup(element) {
+    
     return { __html: element };
 }
 
 function BoardView() {
     let { boardId } = useParams();
     const item = Board(boardId);
-    console.log(boardId)
 
     return (<>
         <div>

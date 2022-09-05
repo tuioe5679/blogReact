@@ -10,8 +10,6 @@ const Main = () => {
 
     const [viewContent, setViewContent] = useState([]);
 
-
-
     useEffect(() => {
         Axios.get('http://localhost:8080/boards').then((response) => {
             setViewContent(response.data);
@@ -35,9 +33,9 @@ const Main = () => {
                 {viewContent.map(item =>
                     <div>
                         <Link to={`/board/${item.idx}`}>{item.title}</Link>
-                        <div>{ReactHtmlParser(item.content)}</div>
                         <div>{item.nickname}</div>
                         <div>{item.date}</div>
+                        <div>{ReactHtmlParser(item.content)}</div>
                         <hr></hr>
                     </div>
                 )}
