@@ -1,5 +1,5 @@
 import { React, useEffect, useState } from 'react';
-import '../main.css'
+import '../css/main.css'
 import ReactHtmlParser from 'html-react-parser';
 import Axios from 'axios';
 import Header from './component/Header';
@@ -34,7 +34,6 @@ const Main = () => {
             <div className='borad'>
                 {viewContent.map(item =>
                     <div>
-                        <div>{item.idx}</div>
                         <Link to={`/board/${item.idx}`}>{item.title}</Link>
                         <div>{ReactHtmlParser(item.content)}</div>
                         <div>{item.nickname}</div>
