@@ -10,7 +10,7 @@ render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="board/:boardid" exact element={<Board/>} />
+      <Route path="board/:boardId" element={<Board/>} />
       <Route path="write" element={<Write />} />
       <Route path="*" element={<Main />}/>
     </Routes>

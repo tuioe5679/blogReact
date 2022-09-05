@@ -1,17 +1,22 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import '../main.css'
 import ReactHtmlParser from 'html-react-parser';
 import Axios from 'axios';
 import Header from './component/Header';
+import { Link } from 'react-router-dom';
 
 
 const Main = () => {
 
     const [viewContent, setViewContent] = useState([]);
 
-    Axios.get('http://localhost:8080/boards').then((response) => {
-        setViewContent(response.data);
-    })
+
+
+    useEffect(() => {
+        Axios.get('http://localhost:8080/boards').then((response) => {
+            setViewContent(response.data);
+        }).catch(err => console.log(err))
+    });
 
     return (
         <div className='blog-main'>
@@ -27,12 +32,13 @@ const Main = () => {
                 <hr></hr>
             </div>
             <div className='borad'>
-                {viewContent.map(element =>
+                {viewContent.map(item =>
                     <div>
-                        <a href='/write'>{element.title}</a>
-                        <div>{ReactHtmlParser(element.content)}</div>
-                        <div>{element.nickname}</div>
-                        <div>{element.date}</div>
+                        <div>{item.idx}</div>
+                        <Link to={`/board/${item.idx}`}>{item.title}</Link>
+                        <div>{ReactHtmlParser(item.content)}</div>
+                        <div>{item.nickname}</div>
+                        <div>{item.date}</div>
                         <hr></hr>
                     </div>
                 )}
