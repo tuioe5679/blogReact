@@ -1,19 +1,43 @@
-import axios from "axios";
+import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./component/Header";
+import { useNavigate } from 'react-router';
 import "../css/board.css"
 
 function Board(boardId) {
+    const navigate = useNavigate();
     const [boardItem, setBoardItem] = useState([]);
+    const [commentItem, setCommentItem] = useState({
+        content: ''
+    });
 
     useEffect(() => {
         if (boardItem == "") {
-            axios.get('http://localhost:8080/board/' + boardId).then((response) => {
+            Axios.get('http://localhost:8080/board/' + boardId).then((response) => {
                 setBoardItem(response.data);
             }).catch(err => console.log(err))
         }
     });
+
+    const getValue = e => {
+        const { name, value } = e.target;
+
+        setCommentItem({
+            ...commentItem,
+            [name]: value
+        })
+    };
+
+    const submitCommentPosting = () => {
+        Axios.post('http://localhost:8080/comment', {
+            content: commentItem.comment
+        }).then(() => {
+
+            alert('등록 완료');
+        })
+        navigate('/board' + boardId);
+    }
 
     const element = boardItem.content;
 
@@ -28,8 +52,8 @@ function Board(boardId) {
                 <div dangerouslySetInnerHTML={createMarkup(element)} />
             </div>
             <input className='comment-input' type='text' placeholder='댓글 입력'
-                onChange={null} name='comment' />
-                <button className="comment-submit-btn">댓글 쓰기</button>
+                onChange={getValue} name='comment' />
+            <button className="comment-submit-btn" onClick={submitCommentPosting}>댓글 쓰기</button>
         </div></>)
 
     return board;
