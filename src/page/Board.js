@@ -27,13 +27,16 @@ function Board(boardId) {
                 <hr></hr>
                 <div dangerouslySetInnerHTML={createMarkup(element)} />
             </div>
+            <input className='comment-input' type='text' placeholder='댓글 입력'
+                onChange={null} name='comment' />
+                <button className="comment-submit-btn">댓글 쓰기</button>
         </div></>)
 
     return board;
 }
 
 function createMarkup(element) {
-    
+
     return { __html: element };
 }
 
