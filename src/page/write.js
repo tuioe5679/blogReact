@@ -25,7 +25,7 @@ function Write() {
     };
 
     const submitPosting = () => {
-        Axios.post('http://localhost:8080/Board', {
+        Axios.post('http://localhost:8080/board', {
             title: Board.title,
             content: Board.content
         }).then(() => {
