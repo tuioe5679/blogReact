@@ -6,7 +6,7 @@ body{
 .board-item{
     margin-left: 500px;
     margin-right: 500px;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .comment-input {
@@ -28,5 +28,11 @@ body{
     border: none;
     color: white;
     background: rgb(62, 178, 255);
+  }
+
+  .comment-item {
+    width: 500px;
+    margin-left: 500px;
+    margin-top: 20px;
   }
   

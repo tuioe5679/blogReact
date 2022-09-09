@@ -25,7 +25,7 @@ const Main = () => {
                     코타
                 </div>
                 <div className='username'>
-                    배이한
+                    tuioe
                 </div>
                 <hr></hr>
             </div>

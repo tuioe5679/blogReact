@@ -78,13 +78,12 @@ function Board(boardId) {
             <input className='comment-input' type='text' placeholder='댓글 입력'
                 onChange={getValue} name='comment' />
             <button className="comment-submit-btn" onClick={submitCommentPosting}>댓글 쓰기</button>
-            <div className="comment-item">
+            <div className="comment">
                 {commentItem.map(item =>
-                    <div>
-                        <div>{item.content}</div>
+                    <div className="comment-item">
                         <div>{item.nickname}</div>
+                        <div>{item.content}</div>
                         <div>{item.date}</div>
-                        <hr></hr>
                     </div>
                 )}
             </div>
