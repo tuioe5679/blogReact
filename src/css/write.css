@@ -1,5 +1,5 @@
-.App {
-  text-align: center;
+
+body {
 }
 
 .blog-container {
@@ -11,15 +11,35 @@
   margin-bottom : 50px;
 }
 
-.form-wrapper{
-  width: 60%;
+.form-wrapper {
+  width: 40%;
+  padding-top: 130px;
   margin: 0 auto;
 }
 
+.title-name {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
 .title-input {
-  width: 500px;
+  width: 747px;
   height: 40px;
-  margin: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(171, 171, 171);
+  border-radius: 3px;
+}
+
+.Button {
+  margin-left: 858px;
+}
+
+button {
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 40px;
+  vertical-align: middle;
 }
 
 .submit-btn {
@@ -27,14 +47,19 @@
   height: 50px;
   font-size: 20px;
   font: bold;
-  padding: 0px;
   border: none;
-  background: rgb(112, 255, 141);
-  border-radius: 5px;
-  margin-top: 40px;
-  vertical-align: middle;
+  background: rgb(62, 178, 255);
+}
+
+.cancel-btn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font: bold;
+  border: 1px solid rgb(171, 171, 171);
+  background: rgb(255, 255, 255);
 }
 
 .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-  min-height: 500px;
+  min-height: 400px;
 }
