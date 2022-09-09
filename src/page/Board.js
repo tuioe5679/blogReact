@@ -36,7 +36,7 @@ function Board(boardId) {
 
             alert('등록 완료');
         })
-        navigate('/board' + boardId);
+        navigate('/board/' + boardId);
     }
 
     const element = boardItem.content;
