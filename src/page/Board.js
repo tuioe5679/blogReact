@@ -26,7 +26,8 @@ function Board(boardId) {
     const [boardItem, setBoardItem] = useState([]);
     const [commentItem, setCommentItem] = useState([]);
     const [postCommentItem, setPostCommentItem] = useState({
-        content: ''
+        content: '',
+        idx: ''
     });
 
     useEffect(() => {
@@ -36,12 +37,11 @@ function Board(boardId) {
                 console.log(response.data);
             }).catch(err => console.log(err))
         }
-        //else if (commentItem == "") {
-        Axios.get('http://localhost:8080/comments').then((response) => {
+        else if (commentItem == "") {
+        Axios.get('http://localhost:8080/comment/' + boardId).then((response) => {
             setCommentItem(response.data);
-
         }).catch(err => console.log(err))
-        //}
+        }
     });
 
     const getValue = e => {
@@ -55,7 +55,8 @@ function Board(boardId) {
 
     const submitCommentPosting = () => {
         Axios.post('http://localhost:8080/comment', {
-            content: postCommentItem.comment
+            content: postCommentItem.comment,
+            idx: boardId
         }).then(() => {
 
             alert('등록 완료');
