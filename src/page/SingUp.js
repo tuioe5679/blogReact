@@ -20,12 +20,6 @@ function SingUp() {
         })
     };
 
-    console.log(User.email);
-    console.log(User.name);
-    console.log(User.nickname);
-    console.log(User.password);
-    console.log(User.phoneNumber);
-
     const SingUp = () => {
         Axios.post('http://localhost:8080/singup', {
             email: User.email,
