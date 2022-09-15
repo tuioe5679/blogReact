@@ -17,6 +17,10 @@ body {
   margin: 0 auto;
 }
 
+.title {
+  padding: 0;
+}
+
 .title-name {
   margin-bottom: 10px;
   font-size: 20px;

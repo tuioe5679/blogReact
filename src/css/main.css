@@ -18,17 +18,7 @@ li a{
     font-weight: bold;
 }
 
-.blog-nav{
-    position: fixed;
-    background-color: rgb(51, 51, 51);
-    display: flex;
-    color: white;
-    width: 100%;
-    align-items: center;
-    font-size: 15px;
-    padding: 20px 50px;
-    top: 0px;
-}
+
 
 .blog-profile{
     text-align: center;
@@ -61,18 +51,6 @@ li a{
 
 .blog-profile hr{
     margin-top: 50px;
-}
-
-.menu{
-    display: flex;
-    padding-left: 1500px;
-}
-.title{
-    font-size: 25px;
-}
-  
-.title > a{
-    color: white;
 }
 
 .borad{
