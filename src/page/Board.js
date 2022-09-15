@@ -38,9 +38,9 @@ function Board(boardId) {
             }).catch(err => console.log(err))
         }
         else if (commentItem == "") {
-        Axios.get('http://localhost:8080/comment/' + boardId).then((response) => {
-            setCommentItem(response.data);
-        }).catch(err => console.log(err))
+            Axios.get('http://localhost:8080/comment/' + boardId).then((response) => {
+                setCommentItem(response.data);
+            }).catch(err => console.log(err))
         }
     });
 
