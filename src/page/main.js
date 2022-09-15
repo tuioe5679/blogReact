@@ -6,7 +6,7 @@ import Header from './component/Header';
 import { Link } from 'react-router-dom';
 
 
-const Main = () => {
+function Main (){
 
     const [viewContent, setViewContent] = useState([]);
 
