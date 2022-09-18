@@ -40,7 +40,7 @@ function Write() {
             <div className='form-wrapper'>
                 <div className='title'>
                     <div className='title-name'>제목</div>
-                    <input className='title-input' type='text' placeholder='제목을 입력'
+                    <input className='title-input' type='text' placeholder='  제목을 입력'
                         onChange={getValue} name='title' />
                 </div>
                 <CKEditor

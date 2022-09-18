@@ -19,6 +19,7 @@ body {
 
 .title {
   padding: 0;
+  margin: 0;
 }
 
 .title-name {
@@ -27,7 +28,9 @@ body {
 }
 
 .title-input {
-  width: 747px;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
   height: 40px;
   margin-bottom: 20px;
   border: 1px solid rgb(171, 171, 171);
@@ -35,11 +38,13 @@ body {
 }
 
 .Button {
-  margin-left: 858px;
+  width: 40%;
+  margin: 0 auto;
+  text-align: right;
 }
 
 button {
-  margin: 20px;
+  margin-left: 10px;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 40px;
@@ -47,8 +52,8 @@ button {
 }
 
 .submit-btn {
-  width: 200px;
-  height: 50px;
+  width: 175px;
+  height: 45px;
   font-size: 20px;
   font: bold;
   border: none;
@@ -57,8 +62,8 @@ button {
 }
 
 .cancel-btn {
-  width: 200px;
-  height: 50px;
+  width: 175px;
+  height: 45px;
   font-size: 20px;
   font: bold;
   border: 1px solid rgb(171, 171, 171);
