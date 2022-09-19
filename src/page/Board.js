@@ -75,10 +75,12 @@ function Board(boardId) {
                 <hr></hr>
                 <div dangerouslySetInnerHTML={createMarkup(element)} />
             </div>
-            <input className='comment-input' type='text' placeholder='댓글 입력'
-                onChange={getValue} name='comment' />
-            <button className="comment-submit-btn" onClick={submitCommentPosting}>댓글 쓰기</button>
             <div className="comment">
+                <input className='comment-input' type='text' placeholder='댓글 입력'
+                    onChange={getValue} name='comment' />
+                <button className="comment-submit-btn" onClick={submitCommentPosting}>댓글 쓰기</button>
+            </div>
+            <div className="comment_content">
                 {commentItem.map(item =>
                     <div className="comment-item">
                         <div>{item.nickname}</div>
