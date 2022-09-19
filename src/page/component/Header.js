@@ -9,6 +9,7 @@ function Header(){
                     <li className="administrator"><a href='/admin'>관리자</a></li>
                     <li className="login"><a href='/login'>로그인</a></li>
                     <li className="write"><a href='/write'>글쓰기</a></li>
+                    <li className="singup"><a href='/singup'>회원가입</a></li>
                 </ul>
             </div>
     )

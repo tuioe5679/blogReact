@@ -1,6 +1,5 @@
 import Axios from "axios";
 import { React, useState } from "react";
-import { Navigate } from "react-router";
 
 function SingUp() {
 
