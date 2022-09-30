@@ -1,16 +1,22 @@
-import { Axios } from "axios";
+import Axios from "axios";
 import React, { useState } from "react";
+import qs from 'qs';
 
 function Login() {
+
+    const axiosConfig = {
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    }
+
     const [loginData, setLoginData] = useState([]);
 
     const login = () => {
-        Axios.post('http://localhost:8080/login', {
-            email: loginData.email,
-            password: loginData.password
-        }).then(() => {
-            alert("로그인 완료");
-        })
+        Axios.post('http://localhost:8080/login', qs.stringify(loginData),
+            axiosConfig).then(() => {
+                alert("로그인 완료");
+            })
     }
 
     const getvalue = e => {
