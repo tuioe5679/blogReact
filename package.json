@@ -5,9 +5,13 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^35.1.0",
     "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@ckeditor/ckeditor5-upload": "^35.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@toast-ui/editor-plugin-code-syntax-highlight": "^3.1.0",
+    "@toast-ui/editor-plugin-color-syntax": "^3.1.0",
+    "@toast-ui/react-editor": "^3.2.2",
     "axios": "^0.27.2",
     "grpc": "^1.24.11",
     "html-react-parser": "^3.0.4",
@@ -42,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0"
   }
 }
