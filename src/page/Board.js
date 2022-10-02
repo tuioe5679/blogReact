@@ -1,29 +1,24 @@
-import Axios from "axios";
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import React, { useEffect, useState } from "react";
+import { Viewer } from '@toast-ui/react-editor';
 import { useParams } from "react-router-dom";
-import Header from "./component/Header";
 import { useNavigate } from 'react-router';
+import Header from "./component/Header";
+import Axios from "axios";
 import "../css/board.css"
 
-function createMarkup(element) {
-
-    return { __html: element };
-}
-
 function BoardView() {
-    let { boardId } = useParams();
-    const item = Board(boardId);
-
-    return (<>
+    const { boardId } = useParams();
+    return (
         <div>
-            {item}
+            {Board(boardId)}
         </div>
-    </>)
+    )
 }
 
 function Board(boardId) {
     const navigate = useNavigate();
-    const [boardItem, setBoardItem] = useState([]);
+    const [boardItem, setBoardItem] = useState({});
     const [commentItem, setCommentItem] = useState([]);
     const [postCommentItem, setPostCommentItem] = useState({
         content: '',
@@ -31,18 +26,15 @@ function Board(boardId) {
     });
 
     useEffect(() => {
-        if (boardItem == "") {
-            Axios.get('http://localhost:8080/board/' + boardId).then((response) => {
-                setBoardItem(response.data);
-                console.log(response.data);
-            }).catch(err => console.log(err))
-        }
-        else if (commentItem == "") {
-            Axios.get('http://localhost:8080/comment/' + boardId).then((response) => {
-                setCommentItem(response.data);
-            }).catch(err => console.log(err))
-        }
-    });
+        Axios.get('http://localhost:8080/board/' + boardId).then((response) => {
+            setBoardItem(response.data);
+
+        }).catch(err => console.log(err))
+
+        Axios.get('http://localhost:8080/comment/' + boardId).then((response) => {
+            setCommentItem(response.data);
+        }).catch(err => console.log(err))
+    }, []);
 
     const getValue = e => {
         const { name, value } = e.target;
@@ -63,9 +55,7 @@ function Board(boardId) {
         navigate('/board/' + boardId);
     }
 
-    const element = boardItem.content;
-
-    const board = (<>
+    return (
         <div>
             <Header></Header>
             <div className="board-item">
@@ -73,7 +63,7 @@ function Board(boardId) {
                 <div>{boardItem.nickname}</div>
                 <div>{boardItem.date}</div>
                 <hr></hr>
-                <div dangerouslySetInnerHTML={createMarkup(element)} />
+                <Viewer initialValue={boardItem.content}></Viewer>
             </div>
             <div className="comment">
                 <input className='comment-input' type='text' placeholder='댓글 입력'
@@ -89,11 +79,8 @@ function Board(boardId) {
                     </div>
                 )}
             </div>
-        </div></>)
-
-    return board;
+        </div>
+    )
 }
-
-
 
 export default BoardView;

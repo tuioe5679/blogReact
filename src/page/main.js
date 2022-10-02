@@ -1,20 +1,21 @@
 import { React, useEffect, useState } from 'react';
 import '../css/main.css'
-import ReactHtmlParser from 'html-react-parser';
 import Axios from 'axios';
 import Header from './component/Header';
 import { Link } from 'react-router-dom';
+import { Viewer } from '@toast-ui/react-editor';
 
 
-function Main (){
+function Main() {
 
     const [viewContent, setViewContent] = useState([]);
 
     useEffect(() => {
         Axios.get('http://localhost:8080/boards').then((response) => {
             setViewContent(response.data);
-        }).catch(err => console.log(err))
-    });
+            console.log(response.data);
+        }).catch(err => console.log(err));
+    }, []);
 
     return (
         <div className='blog-main'>
@@ -35,7 +36,7 @@ function Main (){
                         <Link to={`/board/${item.idx}`}>{item.title}</Link>
                         <div>{item.nickname}</div>
                         <div>{item.date}</div>
-                        <div>{ReactHtmlParser(item.content)}</div>
+                        <Viewer initialValue={item.content} />
                         <hr></hr>
                     </div>
                 )}

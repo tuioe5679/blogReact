@@ -11,9 +11,9 @@ body {
   margin-bottom : 50px;
 }
 
-.form-wrapper {
-  width: 40%;
-  padding-top: 130px;
+.write-container {
+  width: 80%;
+  padding-top: 50px;
   margin: 0 auto;
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 .Button {
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
   text-align: right;
 }
@@ -68,8 +68,4 @@ button {
   font: bold;
   border: 1px solid rgb(171, 171, 171);
   background: rgb(255, 255, 255);
-}
-
-.ck.ck-editor__editable:not(.ck-editor__nested-editable) {
-  min-height: 400px;
 }

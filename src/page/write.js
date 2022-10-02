@@ -1,55 +1,19 @@
-/* eslint-disable */
-import React, { useState } from 'react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Editor } from '@toast-ui/react-editor';
 import { useNavigate } from 'react-router';
-import Header from "./component/Header"
+import { useRef, useState } from 'react';
+import Prism from 'prismjs';
 import Axios from 'axios';
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+import 'prismjs/themes/prism.css';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
+import 'tui-color-picker/dist/tui-color-picker.css';
+import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
+import Header from './component/Header';
 import '../css/write.css';
 
-const API_URL = "https://77em4-8080.sse.codesandbox.io";
-const UPLOAD_ENDPOINT = "upload_files";
-
-
-
-function Write() {
-
-
-    function uploadAdapter(loader) {
-        return {
-            upload: () => {
-                return new Promise((resolve, reject) => {
-                    const body = new FormData();
-                    loader.file.then((file) => {
-                        body.append("files", file);
-                        // let headers = new Headers();
-                        // headers.append("Origin", "http://localhost:3000");
-                        fetch(`${API_URL}/${UPLOAD_ENDPOINT}`, {
-                            method: "post",
-                            body: body
-                            // mode: "no-cors"
-                        })
-                            .then((res) => res.json())
-                            .then((res) => {
-                                resolve({
-                                    default: `${API_URL}/${res.filename}`
-                                });
-                            })
-                            .catch((err) => {
-                                reject(err);
-                            });
-                    });
-                });
-            }
-        };
-    }
-    function uploadPlugin(editor) {
-        editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-            return uploadAdapter(loader);
-        };
-    }
-
-    const navigate = useNavigate();
+function Writer() {
 
     const [Board, setBoard] = useState({
         title: '',
@@ -64,6 +28,18 @@ function Write() {
         })
     };
 
+    const editorRef = useRef();
+
+    const navigate = useNavigate();
+
+    const onChangeEditorText = () => {
+        const data = editorRef.current?.getInstance().getMarkdown();
+        setBoard({
+            ...Board,
+            content: data
+        })
+    }
+
     const submitPosting = () => {
         Axios.post('http://localhost:8080/board', {
             title: Board.title,
@@ -75,34 +51,23 @@ function Write() {
     }
 
     return (
-        <div className="App">
+        <div>
             <Header></Header>
-            <div className='form-wrapper'>
+            <div className='write-container'>
                 <div className='title'>
-                    <div className='title-name'>제목</div>
-                    <input className='title-input' type='text' placeholder='  제목을 입력'
-                        onChange={getValue} name='title' />
+                    <input className='title-input' type='text' placeholder='제목을 입력' onChange={getValue} name='title' />
                 </div>
-                <CKEditor
-                    editor={ClassicEditor}
-                    config={{
-                        extraPlugins: [uploadPlugin]
-                    }}
-                    data=""
-                    onReady={editor => {
-                    }}
-                    onChange={(event, editor) => {
-                        const data = editor.getData();
-                        setBoard({
-                            ...Board,
-                            content: data
-                        })
-                    }}
-                    onBlur={(event, editor) => {
-                    }}
-                    onFocus={(event, editor) => {
-                    }}
-                />
+                <div className='write-editor'>
+                    <Editor
+                        ref={editorRef}
+                        previewStyle='vertical'
+                        height='600px'
+                        initialValue=''
+                        onChange={onChangeEditorText}
+                        useCommandShortcut={false}
+                        plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
+                    />
+                </div>
             </div>
             <div className='Button'>
                 <button className='cancel-btn'>취소</button>
@@ -112,4 +77,4 @@ function Write() {
     );
 }
 
-export default Write;
+export default Writer
