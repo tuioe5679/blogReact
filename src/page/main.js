@@ -14,11 +14,7 @@ function Main() {
         Axios.get('http://localhost:8080/boards').then((response) => {
             setViewContent(response.data);
         }).catch(err => console.log(err));
-
-        let str = viewContent;
-
-        console.log(str);
-    }, []);
+    });
 
     return (
         <div className='blog-main'>
@@ -57,7 +53,7 @@ function Main() {
                         </div>
                         <div>{item.date}</div>
                         <div className='board_content'>
-                            {item.content}
+                            <Viewer initialValue={item.content}></Viewer>
                         </div>
                         <hr></hr>
                     </div>

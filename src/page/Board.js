@@ -54,6 +54,14 @@ function Board(boardId) {
         navigate('/board/' + boardId);
     }
 
+    const removeView = () => {
+        Axios.delete('http://localhost:8080/board/' + boardId, {
+        }).then(function(response) {
+            alert('삭제 완료');
+        })
+        navigate('/main');
+    }
+
     return (
         <div>
             <Header></Header>
@@ -64,7 +72,7 @@ function Board(boardId) {
                     <span className='board_date'>{boardItem.date}</span>
                     <span className='btn'>
                         <button className='updatebtn'>수정</button>
-                        <button className='removebtn'>삭제</button>
+                        <button className='removebtn' onClick={removeView}>삭제</button>
                     </span>
                 </div>
                 <hr></hr>
