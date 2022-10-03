@@ -28,7 +28,6 @@ function Board(boardId) {
     useEffect(() => {
         Axios.get('http://localhost:8080/board/' + boardId).then((response) => {
             setBoardItem(response.data);
-
         }).catch(err => console.log(err))
 
         Axios.get('http://localhost:8080/comment/' + boardId).then((response) => {
@@ -60,10 +59,17 @@ function Board(boardId) {
             <Header></Header>
             <div className="board-item">
                 <h2>{boardItem.title}</h2>
-                <div>{boardItem.nickname}</div>
-                <div>{boardItem.date}</div>
+                <div className='board_detail'>
+                    <span className='board_nickname'>{boardItem.nickname}</span>
+                    <span className='board_date'>{boardItem.date}</span>
+                    <span className='btn'>
+                        <button className='updatebtn'>수정</button>
+                        <button className='removebtn'>삭제</button>
+                    </span>
+                </div>
                 <hr></hr>
-                <Viewer initialValue={boardItem.content}></Viewer>
+                {boardItem.content && //content가 비어있지 않다면 ** 오류 해결~~
+                    <Viewer initialValue={boardItem.content} />}
             </div>
             <div className="comment">
                 <input className='comment-input' type='text' placeholder='댓글 입력'
