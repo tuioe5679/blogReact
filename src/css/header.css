@@ -4,25 +4,40 @@ body{
 }
 
 .blog-nav{
-    background-color: rgb(51, 51, 51);
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(255, 255, 255);
     display: flex;
     color: white;
     align-items: center;
     font-size: 15px;
-    padding: 30px 100px;
+    padding-left: 150px;
     top: 0px;
+    z-index: 10;
+    box-shadow: 0 1px 13px -7px rgb(155, 155, 155);
 }
 
 .menu{
+    margin-left: 50%;
     display: flex;
-    margin-left: auto
+}
+
+.menu > li {
+    padding-left: 50px;
+}
+
+.menu > li > a{
+    font-size: 15px;
+    color: rgb(99, 99, 99);
 }
 
 .title{
     padding-left: 50px;
     font-size: 25px;
+    font-weight: bold;
 }
   
 .title > a{
-    color: white;
+    color: rgb(49, 49, 49);
 }

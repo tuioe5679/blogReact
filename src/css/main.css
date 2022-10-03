@@ -19,18 +19,29 @@ li a{
 }
 
 .blog-profile{
+    width: 22%;
+    height: 100%;
     text-align: center;
+    position: fixed;
+    overflow: auto;
     margin: auto;
-    margin-top: 150px;
-    margin-bottom: 50px;
+    padding-top: 7%;
+    background-color: rgb(255, 255, 255);
 }
 
 .blog-profile img{
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
     margin: 16 0;
     object-fit: cover;
+}
+
+.blog-profile > .logo svg{
+    width: 30px;
+    height: 30px;
+    padding-top: 10px;
+    margin: 15px 13px;
 }
 
 .blog-profile > .username{
@@ -41,7 +52,7 @@ li a{
 }
 
 .blog-profile > .nickname{
-    color: rgb(90, 255, 211);
+    color: rgb(0, 0, 0);
     font-size: 25px;
     font-weight: bold;
     padding-top: 20px;
@@ -52,13 +63,27 @@ li a{
 }
 
 .borad{
-    width: 800px;
+    width: 45%;
     text-align: left;
-    margin: auto
+    margin: auto;
+    padding-top: 5%;
 }
 
+.borad > .borad_list{
+    padding-top: 50px;
+}
+
+.borad > .borad_list > .board_content {
+    font-size: 14px;
+}
+
+
 .borad a{
-    color: black;
-    font-size: 20px;
-    font-weight: bold
+    color: rgb(38, 146, 255);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.borad > .borad_list > .board_title{
+    padding-bottom: 10px;
 }

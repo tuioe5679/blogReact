@@ -6,7 +6,42 @@ body{
 .board-item{
   width: 50%;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 150px;
+}
+
+.board-item > .board_detail > span{
+  padding-right: 10px;
+}
+
+.board-item > .board_detail >.board_date{
+  color: rgb(143, 143, 143);
+}
+
+.board-item > .board_detail > .board_nickname{
+  font-size: 17px;
+}
+
+.board-item > .board_detail > .btn{
+   margin: 10px;
+}
+
+.board-item > .board_detail > .btn > .updatebtn{
+  color: aquamarine;
+}
+
+.board-item > .board_detail > .btn > .removebtn{
+  color: rgb(255, 117, 117);
+}
+
+
+.board-item > .board_detail > .btn > button{
+  padding: 0px 5px 5px 10px;
+  margin-top: 0px;
+  font-size: 17px;
+  font: bold;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 .comment {
