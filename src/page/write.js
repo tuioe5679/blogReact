@@ -15,6 +15,10 @@ import '../css/write.css';
 
 function Writer() {
 
+    const editorRef = useRef();
+
+    const navigate = useNavigate();
+
     const [Board, setBoard] = useState({
         title: '',
         content: '',
@@ -27,11 +31,7 @@ function Writer() {
             [name]: value
         })
     };
-
-    const editorRef = useRef();
-
-    const navigate = useNavigate();
-
+    
     const onChangeEditorText = () => {
         const data = editorRef.current?.getInstance().getMarkdown();
         setBoard({
@@ -55,7 +55,7 @@ function Writer() {
             <Header></Header>
             <div className='write-container'>
                 <div className='title'>
-                    <input className='title-input' type='text' placeholder='제목을 입력' onChange={getValue} name='title' />
+                    <input className='title-input' type='text' placeholder='  제목을 입력' onChange={getValue} name='title' />
                 </div>
                 <div className='write-editor'>
                     <Editor
