@@ -6,6 +6,7 @@ import Write from './page/Write';
 import Login from "./page/Login";
 import SingUp from "./page/SingUp";
 import Admin from "./page/Admin";
+import UpdateWrite from "./page/UpdateWrite"
 
 const rootElement = document.getElementById("root");
 render(
@@ -17,6 +18,7 @@ render(
       <Route path="login" element={<Login />} />
       <Route path="singup" element={<SingUp />} />
       <Route path="admin" element={<Admin />} />
+      <Route path="updateboard/:boardId" element={<UpdateWrite />} />
       <Route path="*" element={<Main />} />
     </Routes>
   </BrowserRouter>,

@@ -4,6 +4,7 @@ import { Viewer } from '@toast-ui/react-editor';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router';
 import Header from "./component/Header";
+import { Link } from 'react-router-dom';
 import Axios from "axios";
 import "../css/board.css"
 
@@ -56,10 +57,14 @@ function Board(boardId) {
 
     const removeView = () => {
         Axios.delete('http://localhost:8080/board/' + boardId, {
-        }).then(function(response) {
+        }).then(function (response) {
             alert('삭제 완료');
         })
         navigate('/main');
+    }
+
+    const updateView = () => {
+        navigate("/updateboard/" + boardId);
     }
 
     return (
@@ -71,7 +76,7 @@ function Board(boardId) {
                     <span className='board_nickname'>{boardItem.nickname}</span>
                     <span className='board_date'>{boardItem.date}</span>
                     <span className='btn'>
-                        <button className='updatebtn'>수정</button>
+                        <Link to={`/updateboard/${boardId}`}>수정</Link>
                         <button className='removebtn' onClick={removeView}>삭제</button>
                     </span>
                 </div>
