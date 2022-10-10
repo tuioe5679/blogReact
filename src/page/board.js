@@ -50,7 +50,7 @@ function Board(boardId) {
             content: postCommentItem.comment,
             idx: boardId
         }).then(() => {
-            alert('등록 완료');
+            alert('등록 완료 ');
         })
         navigate('/board/' + boardId);
     }
