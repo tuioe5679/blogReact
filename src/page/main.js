@@ -50,6 +50,7 @@ function Main() {
                             <Link to={`/board/${item.idx}`}>
                                 {item.title}
                             </Link>
+                            안녕하세요 기술 블로그 입니다
                         </div>
                         <div>{item.date}</div>
                         <div className='board_content'>
