@@ -11,7 +11,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
-import Header from './component/Header';
+import Header from './component/header';
 import '../css/write.css';
 import { useEffect } from 'react';
 
@@ -45,7 +45,7 @@ function Writer() {
     }
 
     const submitPosting = () => {
-        Axios.put('http://localhost:8080/board/' + boardId , {
+        Axios.put('http://localhost:8080/board/' + boardId, {
             title: Board.title,
             content: Board.content
         }).then(() => {

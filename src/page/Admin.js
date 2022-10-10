@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import Admin_Header from "./component/Admin_Header";
+import Admin_Header from "./component/admin_header";
 import '../css/admin.css'
 
 function Admin() {

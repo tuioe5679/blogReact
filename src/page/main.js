@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import '../css/main.css'
 import Axios from 'axios';
-import Header from './component/Header';
+import Header from './component/header';
 import { Link } from 'react-router-dom';
 import { Viewer } from '@toast-ui/react-editor';
 

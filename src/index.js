@@ -1,12 +1,12 @@
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
-import Main from './page/Main';
-import Board from './page/Board'
-import Write from './page/Write';
-import Login from "./page/Login";
-import SingUp from "./page/SingUp";
-import Admin from "./page/Admin";
-import UpdateWrite from "./page/UpdateWrite"
+import Main from './page/main';
+import Board from './page/board'
+import Write from './page/write';
+import Login from "./page/login";
+import SingUp from "./page/singup";
+import Admin from "./page/admin";
+import UpdateWrite from "./page/updatewrite"
 
 const rootElement = document.getElementById("root");
 render(

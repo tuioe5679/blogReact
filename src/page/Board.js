@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Viewer } from '@toast-ui/react-editor';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router';
-import Header from "./component/Header";
+import Header from "./component/header";
 import { Link } from 'react-router-dom';
 import Axios from "axios";
 import "../css/board.css"

@@ -10,7 +10,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
-import Header from './component/Header';
+import Header from './component/header';
 import '../css/write.css';
 
 function Writer() {
@@ -31,7 +31,7 @@ function Writer() {
             [name]: value
         })
     };
-    
+
     const onChangeEditorText = () => {
         const data = editorRef.current?.getInstance().getMarkdown();
         setBoard({
