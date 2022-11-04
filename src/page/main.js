@@ -44,6 +44,9 @@ function Main() {
                 </div>
             </div>
             <div className='borad'>
+                <div className='Login'>
+                    <Link to={"/naver"}>네이버</Link>
+                </div>
                 {viewContent.map(item =>
                     <div className='borad_list'>
                         <div className='board_title'>

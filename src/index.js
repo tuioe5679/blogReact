@@ -7,6 +7,7 @@ import Login from "./page/login";
 import SingUp from "./page/singup";
 import Admin from "./page/admin";
 import UpdateWrite from "./page/updatewrite"
+import Naver from "./page/Naver";
 
 const rootElement = document.getElementById("root");
 render(
@@ -20,6 +21,7 @@ render(
       <Route path="admin" element={<Admin />} />
       <Route path="updateboard/:boardId" element={<UpdateWrite />} />
       <Route path="*" element={<Main />} />
+      <Route path="naver" element={<Naver />} />
     </Routes>
   </BrowserRouter>,
   rootElement
